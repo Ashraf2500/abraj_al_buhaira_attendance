@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "775940102376",
+    "firebase_url": "https://abraj-al-buhaira-attendance-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "abraj-al-buhaira-attendance",
+    "storage_bucket": "abraj-al-buhaira-attendance.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775940102376:android:ace21125974e7e5ea2115d",
+        "android_client_info": {
+          "package_name": "com.abraj_al_buhaira_attendance_eng_ashraf.abraj_al_buhaira_attendance_eng_ashraf"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxAW28ixN759GMTJXBpMjf4wUjw-Sd1No"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

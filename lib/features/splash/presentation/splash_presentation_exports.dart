@@ -1,0 +1,2 @@
+export 'package:abraj_al_buhaira_attendance_eng_ashraf/features/splash/presentation/view/splash_view_exports.dart';   // splash view
+export 'package:abraj_al_buhaira_attendance_eng_ashraf/features/splash/presentation/view_model/splash_view_model_exports.dart'; //splash view-model
