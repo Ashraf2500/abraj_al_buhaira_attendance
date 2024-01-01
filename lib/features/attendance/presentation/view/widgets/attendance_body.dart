@@ -60,9 +60,29 @@ class _AttendanceBodyState extends State<AttendanceBody>
       initialDate: DateTime.now(),
       firstDate: DateTime(2000),
       lastDate: DateTime(2050),
+
+
     ).then((value) {
       setState(() {
-        _selectedDateTimeValue = value!;
+        print("=========================> ${value!.isBefore(DateTime.now())}");
+        if(value!.isBefore(DateTime.now())){
+          _selectedDateTimeValue = value!;
+        }else{
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            backgroundColor: ColorHelper.redColor,
+            elevation: 30,
+            duration: Duration(milliseconds: 2000),
+            content: Container(
+              margin: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
+              alignment: Alignment.bottomCenter,
+              child: Text(
+                // "Successfully save",
+                "Sorry , can't choose date in future",
+                style: TextStyleHelper.textStyle14.copyWith(fontSize: 15),
+              ),
+            ),
+          ));
+        }
         // employee.Date=value;
       });
     });
@@ -188,8 +208,6 @@ class _AttendanceBodyState extends State<AttendanceBody>
                       }
                       if ((stateEmployees is GetEmployeesSuccessState &&
                           stateLocations is GetLocationsSuccessState)) {
-
-
                         return Padding(
                           padding: const EdgeInsets.all(30.0),
                           child: Column(
@@ -510,8 +528,8 @@ class _AttendanceBodyState extends State<AttendanceBody>
                                               ),
                                               IntegerNumberPicker(
                                                 size: 35,
-                                                initialValue: 0,
-                                                minValue: 0,
+                                                initialValue: 1,
+                                                minValue: 1,
                                                 maxValue: 25,
                                                 otherItemsDecoration: BoxDecoration(
                                                   shape: BoxShape.circle,

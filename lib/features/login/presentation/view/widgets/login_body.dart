@@ -2,6 +2,7 @@ import 'package:abraj_al_buhaira_attendance_eng_ashraf/features/attendance/atten
 import 'package:abraj_al_buhaira_attendance_eng_ashraf/features/features_exports.dart';
 import 'package:abraj_al_buhaira_attendance_eng_ashraf/features/login/presentation/view/manager/login_cubit.dart';
 import 'package:abraj_al_buhaira_attendance_eng_ashraf/features/otp/otp_exports.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:abraj_al_buhaira_attendance_eng_ashraf/core/core_exports.dart';
 import 'package:flutter/services.dart';
@@ -239,14 +240,35 @@ class _LoginBodyState extends State<LoginBody> {
                                   Align(
                                     alignment: Alignment.topRight,
                                     child: GestureDetector(
-                                      onTap: (){
+                                      onTap: ()async{
                                        /* showProgressIndicator(context);
                                         _register(context);*/
-                                        Navigator.of(context).push(
+                                       /* Navigator.of(context).push(
                                           MaterialPageRoute(builder: (context){
                                             return TakePhone();
                                           }),
-                                        );
+                                        );*/
+
+                                        final users =await FirebaseFirestore.instance.collection('Data').get();
+                                        print("mohamed Hany-${users.docs[0].data()}");
+
+                                        final users2 =await FirebaseFirestore.instance.collection('Users').get();
+                                        for(int i = 0 ; i<users2.docs.length ; i++ ){
+                                          print("User ${i+1} : ${users2.docs[i].data()}");
+                                        }
+                                        //print("mohamed Hany2-${users2.docs[2].data()}");
+
+                                        FirebaseFirestore.instance.collection('Data').add({
+                                          "Date":"20",
+                                          "type":"sas",
+
+                                        });
+
+                                        FirebaseFirestore.instance.collection('Users').add({
+                                          "name":"mohamed",
+                                          "phone":"01055678943",
+
+                                        });
                                       },
                                       child: Text(
                                         "Forget Password ? ",
